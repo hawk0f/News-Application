@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/newsListPhoneFragment">
+
+    <fragment
+        android:id="@+id/newsListPhoneFragment"
+        android:name="com.lab4.task6.viewsPhone.NewsListPhoneFragment"
+        android:label="fragment_news_list"
+        tools:layout="@layout/fragment_news_list_phone" >
+        <action
+            android:id="@+id/action_newsListFragment_to_webViewFragment"
+            app:destination="@id/newsInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newsInfoFragment"
+        android:name="com.lab4.task6.viewsPhone.NewsInfoPhoneFragment"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_news_info_phone" >
+        <argument
+            android:name="currentNews"
+            app:argType="com.lab4.task6.models.News" />
+    </fragment>
+</navigation>
