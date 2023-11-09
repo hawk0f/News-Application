@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/newsListPhoneFragment"
-        android:name="com.lab4.task6.viewsPhone.NewsListPhoneFragment"
+        android:name="com.lab4.task6.views.NewsListFragment"
         android:label="fragment_news_list"
-        tools:layout="@layout/fragment_news_list_phone" >
+        tools:layout="@layout/fragment_news_list" >
         <action
             android:id="@+id/action_newsListFragment_to_webViewFragment"
             app:destination="@id/newsInfoFragment" />
@@ -17,9 +17,9 @@
 
     <fragment
         android:id="@+id/newsInfoFragment"
-        android:name="com.lab4.task6.viewsPhone.NewsInfoPhoneFragment"
+        android:name="com.lab4.task6.views.NewsInfoFragment"
         android:label="fragment_web_view"
-        tools:layout="@layout/fragment_news_info_phone" >
+        tools:layout="@layout/fragment_news_info" >
         <argument
             android:name="currentNews"
             app:argType="com.lab4.task6.models.News" />

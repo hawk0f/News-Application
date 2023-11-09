@@ -1,4 +1,4 @@
-package com.lab4.task6.viewsPhone
+package com.lab4.task6.views
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lab4.task6.adapters.PhoneNewsAdapter
-import com.lab4.task6.databinding.FragmentNewsListPhoneBinding
+import com.lab4.task6.adapters.NewsAdapter
+import com.lab4.task6.databinding.FragmentNewsListBinding
 import com.lab4.task6.viewModels.NewsListViewModel
 import com.lab4.task6.viewModelsFactories.NewsListViewModelFactory
 
-class NewsListPhoneFragment : Fragment()
+class NewsListFragment : Fragment()
 {
-    private var _binding: FragmentNewsListPhoneBinding? = null
+    private var _binding: FragmentNewsListBinding? = null
     private val binding
         get() = _binding!!
 
@@ -23,14 +23,14 @@ class NewsListPhoneFragment : Fragment()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
     {
-        _binding = FragmentNewsListPhoneBinding.inflate(inflater, container, false)
+        _binding = FragmentNewsListBinding.inflate(inflater, container, false)
         val view = binding.root
 
         viewModelFactory = NewsListViewModelFactory(requireContext())
         viewModel = ViewModelProvider(this, viewModelFactory)[NewsListViewModel::class.java]
 
         viewModel.newsList.observe(viewLifecycleOwner) { _ ->
-            val newsAdapter = PhoneNewsAdapter(viewModel)
+            val newsAdapter = NewsAdapter(viewModel)
             binding.newsRecycler.adapter = newsAdapter
             binding.newsRecycler.layoutManager = LinearLayoutManager(context)
         }

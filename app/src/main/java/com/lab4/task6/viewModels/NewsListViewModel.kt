@@ -2,7 +2,6 @@ package com.lab4.task6.viewModels
 
 import android.content.Context
 import android.widget.Toast
-import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

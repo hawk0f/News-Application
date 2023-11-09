@@ -1,4 +1,4 @@
-package com.lab4.task6.viewsPhone
+package com.lab4.task6.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,13 +9,13 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.lab4.task6.databinding.FragmentNewsInfoPhoneBinding
+import com.lab4.task6.databinding.FragmentNewsInfoBinding
 import com.lab4.task6.viewModelsFactories.NewsInfoViewModelFactory
 import com.lab4.task6.viewModels.NewsInfoViewModel
 
-class NewsInfoPhoneFragment : Fragment()
+class NewsInfoFragment : Fragment()
 {
-    private var _binding: FragmentNewsInfoPhoneBinding? = null
+    private var _binding: FragmentNewsInfoBinding? = null
     private val binding
         get() = _binding!!
 
@@ -24,7 +24,7 @@ class NewsInfoPhoneFragment : Fragment()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
     {
-        _binding = FragmentNewsInfoPhoneBinding.inflate(inflater, container, false)
+        _binding = FragmentNewsInfoBinding.inflate(inflater, container, false)
         val view = binding.root
 
         viewModelFactory = NewsInfoViewModelFactory(requireArguments())
