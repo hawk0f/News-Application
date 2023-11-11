@@ -8,10 +8,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.lab4.task6.databinding.FragmentNewsInfoBinding
-import com.lab4.task6.viewModelsFactories.NewsInfoViewModelFactory
-import com.lab4.task6.viewModels.NewsInfoViewModel
 
 class NewsInfoFragment : Fragment()
 {
@@ -19,18 +16,15 @@ class NewsInfoFragment : Fragment()
     private val binding
         get() = _binding!!
 
-    private lateinit var viewModel: NewsInfoViewModel
-    private lateinit var viewModelFactory: NewsInfoViewModelFactory
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
     {
         _binding = FragmentNewsInfoBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        viewModelFactory = NewsInfoViewModelFactory(requireArguments())
-        viewModel = ViewModelProvider(this, viewModelFactory)[NewsInfoViewModel::class.java]
+        val currentNews = NewsInfoFragmentArgs.fromBundle(requireArguments()).currentNews
 
-        binding.currentNews = viewModel.currentNews
+        binding.news = currentNews
+        binding.lifecycleOwner = viewLifecycleOwner
 
         binding.webView.webViewClient = object : WebViewClient()
         {
@@ -41,7 +35,7 @@ class NewsInfoFragment : Fragment()
             }
         }
 
-        binding.webView.loadUrl(viewModel.currentNews.url)
+        binding.webView.loadUrl(currentNews.link)
 
         return view
     }

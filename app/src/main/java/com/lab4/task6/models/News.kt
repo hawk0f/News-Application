@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 import java.io.Serializable
 
-data class News(val title: String, val url: String) : Serializable, Parcelable
+data class News(val title: String, val link: String) : Serializable, Parcelable
 {
     var rating: Float = 0f
     var isSelected: Boolean = false
@@ -18,7 +18,7 @@ data class News(val title: String, val url: String) : Serializable, Parcelable
     override fun writeToParcel(parcel: Parcel, flags: Int)
     {
         parcel.writeString(title)
-        parcel.writeString(url)
+        parcel.writeString(link)
         parcel.writeFloat(rating)
         parcel.writeByte(if (isSelected) 1 else 0)
     }

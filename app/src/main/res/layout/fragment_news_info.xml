@@ -3,7 +3,7 @@
 
     <data>
         <variable
-            name="currentNews"
+            name="news"
             type="com.lab4.task6.models.News" />
     </data>
 
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:numStars="5"
-            android:rating="@={currentNews.rating}"
+            android:rating="@={news.rating}"
             android:stepSize="1" />
 
         <WebView
